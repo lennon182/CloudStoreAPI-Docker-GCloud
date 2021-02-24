@@ -1,0 +1,8 @@
+# FOLDERS
+# dist/
+node_modules/
+mongo/
+src/configs/
+# FILES
+.DS_Store
+.env

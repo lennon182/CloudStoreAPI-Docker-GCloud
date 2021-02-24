@@ -1,0 +1,29 @@
+# IF YOU WANT CONTINUOUS DEPLOYMENT TO GOOGLE CLOUD
+  # Build the container image from a Dockerfile
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/${_PROJECT_ID}/${_MYIMAGENAME}:${_V}', '.']
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/${_PROJECT_ID}/${_MYIMAGENAME}']
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - '${_SERVICE_NAME}'
+      - '--image'
+      - 'gcr.io/${_PROJECT_ID}/${_MYIMAGENAME}'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+substitutions:
+  # FROM.env
+  _PROJECT_ID: ${_PROJECT_ID}
+  _MYIMAGENAME: ${_MYIMAGENAME}
+  _SERVICE_NAME: ${_SERVICE_NAME}
+  _V: v1
+images:
+  - gcr.io/${_PROJECT_ID}/${_MYIMAGENAME}

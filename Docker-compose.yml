@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  server-api-store:
+    container_name: node-server-store
+    environment:
+      - PORT=${PORT}
+      - PUBLIC_PORT=${PUBLIC_PORT}
+      - DB_URI=${DB_URI}
+      - JWT_KEY=${JWT_KEY}
+    restart: always
+    build: .
+    ports:
+      - '${PUBLIC_PORT}:${PORT}'
+    #   depends_on: mongo
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always
+    volumes:
+      - ./mongo/data:/data/db
+    ports:
+      - '27017:27017'
+    logging:
+      driver: none

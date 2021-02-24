@@ -1,0 +1,629 @@
+{
+	"info": {
+		"_postman_id": "4692e867-936c-4356-99d3-c1b0010bec20",
+		"name": "CLOUD_STORE_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[AUTH-LOGIN]:localhost:3500/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"store@email.com\",\n    \"password\": \"password\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3500/admin/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"admin",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ USER-GET-ALL ]:localhost:3500/users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"StraapBerry\",\n    \"email\": \"store@email.com\",\n    \"password\": \"password\",\n    \"roles\": [\"602a4933f5d92f25963dfbb3\"],\n    \"address\": \"5th Av. Street\",\n    \"phone\": \"7898789067\",\n    \"location\": \"CDMX\",\n    \"shipping\": 25,\n    \"status\": true,\n    \"logo\": \"ImageUrlLogo\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3500/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[AUTH-REGISTER]:localhost:3500/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"AppStore\",\n    \"email\": \"store@email.com\",\n    \"password\": \"password\",\n    \"address\": \"5th Av. Street\",\n    \"phone\": \"7898789067\",\n    \"location\": \"CDMX\",\n    \"shipping\": 25,\n    \"logo\": \"https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\",\n    \"status\": true,\n    \"rolname\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3500/admin/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"admin",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ROLES-GET-ALL]:localhost:3500/roles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3500/roles",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ROLES-CREATE]:localhost:3500/roles",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Editors\",\n    \"description\": \"Editors Store\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3500/roles",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ROLES-UPDATE]:localhost:3500/roles/602a4e4cee247825e014dcac",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Editors\",\n    \"description\": \"Editors Store !\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3500/roles/602a4e4cee247825e014dcac",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"roles",
+						"602a4e4cee247825e014dcac"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[USER-UPDATE]:localhost:3500/users/602a4b4be42a5525c622ab16?",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"StraapBerry Store\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3500/users/602a4b4be42a5525c622ab16?",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"users",
+						"602a4b4be42a5525c622ab16"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[USER-GET-ONE]:localhost:3500/users/602a58c9ccb32527d742f8f6",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3500/users/602a58c9ccb32527d742f8f6",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"users",
+						"602a58c9ccb32527d742f8f6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[AUTH-CUSTOMERS-REGISTER]:localhost:3500/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"customertest\",\n    \"email\": \"customer@email.com\",\n    \"password\":\"password\",\n    \"address\":\"St. Pete Street\",\n    \"phone\": \"5556669999\",\n    \"location\":\"MAZ\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3500/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[AUTH-CUSTOMERS-LOGIN]:localhost:3500/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"customer@email.com\",\n    \"password\": \"password\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3500/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[CUSTOMERS-GET-ALL]:localhost:3500/customers/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3500/customers/",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"customers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[CUSTOMERS-GET-ONE]:localhost:3500/customers/602a5e180fa1fd28a1eb6a77",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3500/customers/602a5e180fa1fd28a1eb6a77",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"customers",
+						"602a5e180fa1fd28a1eb6a77"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[CUSTOMERS-UPDATE]:localhost:3500/customers/602a5e180fa1fd28a1eb6a77",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": \"St. John Street\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3500/customers/602a5e180fa1fd28a1eb6a77",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"customers",
+						"602a5e180fa1fd28a1eb6a77"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[PRODUCTS-CREATE]:localhost:3500/products",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "key-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMzYwOGM3NzFkM2Y2ZmJhNzZkMTAyNSIsIm5hbWUiOiJBcHBTdG9yZSIsImVtYWlsIjoic3RvcmVAZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjE0MTUzOTQyLCJleHAiOjE2MTQyNDAzNDJ9._JHJtU7Bjn2KJMBKNHScs2n-7ur4tBCmd7kYd-9fH6I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"price\":26,\n    \"name\":\"Cebolla\",\n    \"description\":\"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt repellat earum, fugiat quidem atque, itaque, dolores autem voluptatum magni repellendus voluptatibus quae adipisci provident veritatis fuga facilis id quo! Accusantium.\",\n    \"unit\":\"KG\",\n    \"img\": \"https://images.pexels.com/photos/533342/pexels-photo-533342.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\",\n    \"status\": true,\n    \"createtBy\": \"602a6bc1eab6032bde12d7a6\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3500/products",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[PRODUCTS-GET-ALL]:localhost:3500/products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "key-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMmE2YmMxZWFiNjAzMmJkZTEyZDdhNiIsIm5hbWUiOiJTdHJhYXBCZXJyeSIsImVtYWlsIjoic3RvcmVAZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjEzMzk1MzE4LCJleHAiOjE2MTM0ODE3MTh9.-JjVBM4J5s5QbQmGZq57ZmasM7mIhlIDGFi2ce8P5nk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3500/products",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[PRODUCTS-GET-ONE]:localhost:3500/products/602a6687b5cf922a46f6101e",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3500/products/6035fe0f236938115e5a9919",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"products",
+						"6035fe0f236938115e5a9919"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[PRODUCTS-UPDATE]:localhost:3500/products/602a6687b5cf922a46f6101e",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "key-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMmE2YmMxZWFiNjAzMmJkZTEyZDdhNiIsIm5hbWUiOiJTdHJhYXBCZXJyeSIsImVtYWlsIjoic3RvcmVAZW1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjEzMzk1MzE4LCJleHAiOjE2MTM0ODE3MTh9.-JjVBM4J5s5QbQmGZq57ZmasM7mIhlIDGFi2ce8P5nk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"img\": \"https://images.pexels.com/photos/1047261/pexels-photo-1047261.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260%27\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3500/products/6035fe0f236938115e5a9919",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"products",
+						"6035fe0f236938115e5a9919"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[PRODUCTS-DELETE]:localhost:3500/products/602a6687b5cf922a46f6101e",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3500/products/602a6687b5cf922a46f6101e",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"products",
+						"602a6687b5cf922a46f6101e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[CUSTOMERS-DELETE]:localhost:3500/customers/602a5e180fa1fd28a1eb6a77",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3500/customers/602a5e180fa1fd28a1eb6a77",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"customers",
+						"602a5e180fa1fd28a1eb6a77"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[USER-DELETE]:localhost:3500/users/602a58c9ccb32527d742f8f6",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3500/users/602a58c9ccb32527d742f8f6",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"users",
+						"602a58c9ccb32527d742f8f6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ORDERS-GET-ALL]:localhost:3500/orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3500/orders/",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ORDERS-CREATE]:localhost:3500/orders/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer\":\"602a6b9beab6032bde12d7a5\",\n    \"shop\":\"602a6bc1eab6032bde12d7a6\",\n    \"products\":[\n        {\n            \"product\":\"602a6dab42348a2c07765e69\",\n            \"price\":45,\n            \"quantity\":10\n        },\n        {\n            \"product\":\"602a6d9242348a2c07765e68\",\n            \"price\":45,\n            \"quantity\":10\n        },\n        {\n            \"product\":\"602a6d8a42348a2c07765e67\",\n            \"price\":45,\n            \"quantity\":10\n        },\n        {\n            \"product\":\"602a6d8342348a2c07765e66\",\n            \"price\":45,\n            \"quantity\":10\n        }\n    ],\n    \"total\": 450,\n    \"shipping\":25,\n    \"paymentMethod\":\"cash\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3500/orders/",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ORDERS-GET-ONE]:localhost:3500/orders/602a6e0942348a2c07765e6a",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3500/orders/602a6e0942348a2c07765e6a",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"orders",
+						"602a6e0942348a2c07765e6a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ORDERS-UPDATE]:localhost:3500/orders/602a6e0942348a2c07765e6a",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"paymentMethod\": \"transfer\"}"
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ORDERS-DELETE]:localhost:3500/orders/602a6e0942348a2c07765e6a",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3500/orders/602a6e0942348a2c07765e6a",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"orders",
+						"602a6e0942348a2c07765e6a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

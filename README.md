@@ -59,7 +59,7 @@ Next:
     - cloudbuild.yml
         - This file for continuous deployment on Google cloud
 
-### 🟢 Thow Containers:
+### 🟢 Two Containers:
 
     1.  ApiStore: Node From typeScript Source
         - Container name: node-server-store
@@ -125,3 +125,5 @@ Next:
     - Create Customers Based Roles
     - Update Customers Based Roles
     - Delete Customers Based Roles
+
+<b>

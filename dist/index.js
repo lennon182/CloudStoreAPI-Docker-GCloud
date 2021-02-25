@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
-var Dbconnection_1 = __importDefault(require("./src/db/Dbconnection"));
+var Dbconnection_1 = require("./src/db/Dbconnection");
 var server_1 = __importDefault(require("./src/server"));
 var dotenv_1 = require("dotenv");
 var cors_1 = __importDefault(require("cors"));
@@ -19,8 +19,9 @@ var orders_routes_1 = __importDefault(require("./src/routes/orders.routes"));
 var role_routes_1 = __importDefault(require("./src/routes/role.routes"));
 //
 dotenv_1.config();
+var db = new Dbconnection_1.DbConnection();
 var server = new server_1.default();
-var dbConnection = new Dbconnection_1.default();
+var dbConnection = new Dbconnection_1.DbConnection();
 //
 var indexRoutes = new index_routes_1.default();
 var authRoutes = new auth_routes_1.default();
@@ -42,4 +43,4 @@ server.app.use('/', productRoutes.router);
 server.app.use('/', orderRoutes.router);
 server.app.use('/', rolRouter.router);
 server.startSever(function (port) { return console.log("\uD83D\uDD25[app-status]: Server Up!, Port: " + port); });
-Dbconnection_1.default;
+db.dbStart();

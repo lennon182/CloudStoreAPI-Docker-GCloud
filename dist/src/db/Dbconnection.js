@@ -39,33 +39,37 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DbConnection = void 0;
 var mongoose_1 = __importDefault(require("mongoose"));
 var DbConnection = /** @class */ (function () {
     function DbConnection() {
         this.URI_DB = "" + process.env.DB_URI;
-        this.dbStart();
     }
     DbConnection.prototype.dbStart = function () {
         return __awaiter(this, void 0, void 0, function () {
+            var dbCnx, e_1;
             return __generator(this, function (_a) {
-                mongoose_1.default
-                    .connect("" + this.URI_DB, {
-                    useNewUrlParser: true,
-                    useUnifiedTopology: true,
-                    useCreateIndex: true,
-                })
-                    .catch(function (e) {
-                    console.log("ERRROR, DB no connected...", e.message);
-                    return;
-                })
-                    .then(function (connected) {
-                    console.log("DB is Connected...");
-                    return;
-                });
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        console.log("\uD83D\uDD25 DB start => " + this.URI_DB);
+                        return [4 /*yield*/, mongoose_1.default.connect("" + this.URI_DB, {
+                                useNewUrlParser: true,
+                                useUnifiedTopology: true,
+                                useCreateIndex: true,
+                            })];
+                    case 1:
+                        dbCnx = _a.sent();
+                        console.log("\uD83D\uDD25 DB is Connected..." + this.URI_DB);
+                        return [2 /*return*/, dbCnx];
+                    case 2:
+                        e_1 = _a.sent();
+                        return [2 /*return*/, console.log("\uD83D\uDD25 ERRROR, DB no connected...", e_1.message)];
+                    case 3: return [2 /*return*/];
+                }
             });
         });
     };
     return DbConnection;
 }());
-exports.default = DbConnection;
+exports.DbConnection = DbConnection;

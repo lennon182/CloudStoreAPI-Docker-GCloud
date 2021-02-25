@@ -1,25 +1,21 @@
 import mongoose from 'mongoose';
 
-export default class DbConnection {
+export class DbConnection {
   private URI_DB: string = `${process.env.DB_URI}`;
-  constructor() {
-    this.dbStart();
-  }
+  constructor() {}
 
   async dbStart() {
-    mongoose
-      .connect(`${this.URI_DB}`, {
+    try {
+      console.log(`🔥 DB start => ${this.URI_DB}`);
+      const dbCnx = await mongoose.connect(`${this.URI_DB}`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
-      })
-      .catch((e) => {
-        console.log(`ERRROR, DB no connected...`, e.message);
-        return;
-      })
-      .then((connected) => {
-        console.log(`DB is Connected...`);
-        return;
       });
+      console.log(`🔥 DB is Connected...${this.URI_DB}`);
+      return dbCnx;
+    } catch (e) {
+      return console.log(`🔥 ERRROR, DB no connected...`, e.message);
+    }
   }
 }

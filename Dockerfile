@@ -3,7 +3,7 @@ FROM node
 # FROM .env IF USE CLOUDBUILD
 # ENV DB_URI= ${DB_URI}
 # ENV JWT_KEY= ${JWT_KEY}
-# ENV PORT=${PORT}
+ENV PORT=${PORT}
 # ENV PUBLIC_PORT=${PUBLIC_PORT}
 
 RUN mkdir -p /app/server-store
@@ -16,6 +16,7 @@ COPY ./dist ./
 
 RUN npm install
 
-EXPOSE 3000
+#EXPOSE 3000
+EXPOSE ${PORT}
 
 CMD ["node", "index.js"]

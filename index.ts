@@ -1,5 +1,5 @@
 import express from 'express';
-import DbConnection from './src/db/Dbconnection';
+import { DbConnection } from './src/db/Dbconnection';
 import Server from './src/server';
 import { config } from 'dotenv';
 import cors from 'cors';
@@ -16,6 +16,7 @@ import RolRouter from './src/routes/role.routes';
 //
 
 config();
+const db = new DbConnection();
 const server = new Server();
 const dbConnection = new DbConnection();
 //
@@ -42,4 +43,4 @@ server.app.use('/', orderRoutes.router);
 server.app.use('/', rolRouter.router);
 
 server.startSever((port: number) => console.log(`🔥[app-status]: Server Up!, Port: ${port}`));
-DbConnection;
+db.dbStart();
